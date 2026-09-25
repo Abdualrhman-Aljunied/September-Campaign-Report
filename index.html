@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تقرير الحملة التسويقية والإعلانية — كلية التعليم عن بعد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F8F6; --surface:#FFFFFF; --ink:#14231B; --muted:#5B6B63;
+  --green-900:#0B4A32; --green-700:#0F7A4A; --green-500:#2E9C63; --green-100:#E3F3EA;
+  --gold:#A97F2E; --line:#E1E5E1; --danger:#B4483A;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  box-sizing:border-box;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1613; --surface:#16201C; --ink:#EAF1EC; --muted:#9BB0A5;
+    --green-900:#BFF0D6; --green-700:#3FBE82; --green-500:#2E9C63; --green-100:#16281F;
+    --gold:#D8B876; --line:#253128;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1613; --surface:#16201C; --ink:#EAF1EC; --muted:#9BB0A5;
+  --green-900:#BFF0D6; --green-700:#3FBE82; --green-500:#2E9C63; --green-100:#16281F;
+  --gold:#D8B876; --line:#253128;
+}
+*{box-sizing:border-box;}
+html{scroll-padding-top:64px;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
+  line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px; margin:0 auto; padding:0 20px;}
+a{color:inherit;}
+
+/* nav */
+.nav{
+  position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+  padding-top:calc(env(safe-area-inset-top,0px));
+}
+.nav-inner{max-width:880px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:15px;}
+.brand-mark{width:28px; height:28px; border-radius:7px; background:var(--green-700); flex:0 0 auto;}
+.nav-links{display:flex; gap:18px; font-size:13.5px; color:var(--muted); overflow-x:auto; scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links a{white-space:nowrap; text-decoration:none; padding:4px 0; border-bottom:2px solid transparent;}
+.nav-links a:hover{color:var(--green-700); border-color:var(--green-700);}
+
+/* hero */
+.hero{background:linear-gradient(160deg, var(--green-900), var(--green-700)); color:#F3FBF6; padding:56px 0 40px;}
+.hero .wrap{display:flex; flex-direction:column; gap:6px;}
+.hero-eyebrow{font-size:13.5px; opacity:.8;}
+.hero h1{font-size:clamp(26px,4vw,38px); margin:2px 0 4px; font-weight:700; line-height:1.3;}
+.hero-period{font-size:14px; opacity:.85; margin-bottom:28px;}
+.kpi-row{display:flex; flex-wrap:wrap; gap:0; border-top:1px solid rgba(255,255,255,.22); padding-top:22px;}
+.kpi{flex:1 1 140px; padding:6px 18px 6px 0; border-inline-end:1px solid rgba(255,255,255,.2);}
+.kpi:last-child{border-inline-end:none;}
+.kpi .num{font-size:clamp(20px,2.6vw,28px); font-weight:700; display:block;}
+.kpi .lbl{font-size:12.5px; opacity:.82; margin-top:2px;}
+
+/* sections */
+section{padding:44px 0;}
+section + section{border-top:1px solid var(--line);}
+.sec-head{display:flex; align-items:center; gap:10px; margin-bottom:22px;}
+.sec-head .bar{width:5px; height:22px; background:var(--green-700); border-radius:2px;}
+.sec-head h2{font-size:22px; margin:0; font-weight:700;}
+p{color:var(--ink);}
+.muted{color:var(--muted); font-size:14px;}
+.note{
+  background:var(--green-100); border-inline-start:3px solid var(--green-700);
+  padding:12px 16px; border-radius:6px; font-size:14px; color:var(--ink); margin-top:14px;
+}
+.note.warn{background:color-mix(in srgb, var(--danger) 10%, var(--surface)); border-inline-start-color:var(--danger);}
+
+/* growth compare */
+.growth-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+@media (max-width:560px){.growth-grid{grid-template-columns:1fr;}}
+.growth-card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px;}
+.growth-card h3{margin:0 0 12px; font-size:15px; display:flex; align-items:center; gap:8px;}
+.growth-row{display:flex; justify-content:space-between; font-size:13.5px; padding:7px 0; border-top:1px dashed var(--line);}
+.growth-row:first-of-type{border-top:none;}
+.growth-row b{font-weight:700;}
+.arrow{color:var(--green-700); font-weight:700;}
+
+/* bars */
+.barlist{display:flex; flex-direction:column; gap:14px;}
+.bar-row .top{display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;}
+.bar-row .top .val{font-weight:700; color:var(--green-700);}
+.track{background:var(--green-100); border-radius:5px; height:10px; overflow:hidden;}
+.fill{height:100%; background:var(--green-700); border-radius:5px;}
+.fill.gold{background:var(--gold);}
+
+/* table */
+.tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px;}
+table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:640px;}
+th,td{padding:11px 13px; text-align:center; border-bottom:1px solid var(--line); white-space:nowrap;}
+th{background:var(--green-900); color:#fff; font-weight:600; font-size:12.5px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:nth-child(even){background:color-mix(in srgb, var(--green-100) 55%, transparent);}
+tr.total-row{background:var(--green-100); font-weight:700;}
+.badge{display:inline-block; padding:3px 10px; border-radius:999px; font-size:11.5px; font-weight:600;}
+.badge.excellent{background:#DCF3E4; color:#0B6B3A;}
+.badge.vgood{background:#E7F0FF; color:#1E4FA0;}
+.badge.good{background:#FFF3D6; color:#8A6205;}
+.badge.na{background:#EFEFEF; color:#767676;}
+:root[data-theme="dark"] .badge{filter:brightness(1.15) saturate(1.1);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .badge{filter:brightness(1.15) saturate(1.1);}}
+
+/* two col */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+@media (max-width:560px){.two-col{grid-template-columns:1fr;}}
+
+/* recs */
+ol.recs{margin:0; padding:0; list-style:none; counter-reset:rec;}
+ol.recs li{counter-increment:rec; display:flex; gap:14px; padding:14px 0; border-top:1px solid var(--line);}
+ol.recs li:first-child{border-top:none;}
+ol.recs li::before{
+  content:counter(rec); flex:0 0 auto; width:28px; height:28px; border-radius:50%;
+  background:var(--green-700); color:#fff; display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700;
+}
+ul.plain{margin:8px 0 0; padding-inline-start:20px;}
+ul.plain li{margin-bottom:6px; font-size:14.5px;}
+
+/* glossary */
+details{border:1px solid var(--line); border-radius:8px; padding:10px 16px; margin-bottom:8px; background:var(--surface);}
+details summary{cursor:pointer; font-weight:600; font-size:14.5px;}
+details p{margin:8px 0 2px; font-size:13.5px; color:var(--muted);}
+
+footer{padding:32px 0 40px; text-align:center; color:var(--muted); font-size:13px;}
+.chip-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+.chip{background:var(--green-100); color:var(--green-700); font-size:12.5px; padding:5px 12px; border-radius:999px;}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-inner">
+  <div class="brand"><span class="brand-mark"></span> كلية التعليم عن بعد</div>
+  <div class="nav-links">
+    <a href="#overview">نظرة عامة</a>
+    <a href="#growth">النمو الرقمي</a>
+    <a href="#audience">الجمهور</a>
+    <a href="#geo">الدول</a>
+    <a href="#summary">الملخص</a>
+    <a href="#recs">التوصيات</a>
+  </div>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">جامعة الوسطية الشرعية — كلية التعليم عن بعد</div>
+    <h1>تقرير الحملة التسويقية والإعلانية</h1>
+    <div class="hero-period">الفترة: 5 أغسطس — 19 سبتمبر 2026</div>
+    <div class="kpi-row" id="overview">
+      <div class="kpi"><span class="num">75,245</span><span class="lbl">الوصول</span></div>
+      <div class="kpi"><span class="num">188,805</span><span class="lbl">مرات الظهور</span></div>
+      <div class="kpi"><span class="num">2.51</span><span class="lbl">معدل التكرار</span></div>
+      <div class="kpi"><span class="num">6.10%</span><span class="lbl">نسبة النقر الكلي CTR</span></div>
+      <div class="kpi"><span class="num">2,314</span><span class="lbl">النتائج (محادثات)</span></div>
+      <div class="kpi"><span class="num">9,282</span><span class="lbl">إجمالي التفاعلات</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="sec-head"><span class="bar"></span><h2>الأداء العام للحملة</h2></div>
+  <p>حققت الحملة وصولًا واسعًا إلى <b>75,245</b> شخصًا عبر <b>188,805</b> ظهور، بمعدل تكرار <b>2.51</b> — وهو معدل صحي لم يقترب من مستوى "الإرهاق الإعلاني" (الذي يبدأ عادة من 3.5 فأعلى). الأهم أن الحملة سجّلت <b>نسبة نقر كلي 6.10%</b> ونسبة نقر على الرابط <b>2.63%</b>، وكلاهما أعلى من متوسطات السوق الإعلاني العربي المعتادة (1–2%)، وهو مؤشر قوي على جودة الرسالة والعناصر البصرية المستخدمة.</p>
+  <p>انتهت هذه التفاعلات إلى <b>2,314 نتيجة</b> ممثّلة ببدء محادثات مع الجمهور المهتم.</p>
+  <div class="chip-row">
+    <span class="chip">هدف الحملة: زيادة التسجيلات عبر تصميم رسائل إعلانية موجّهة</span>
+    <span class="chip">المنصات: فيسبوك + إنستغرام</span>
+    <span class="chip">3 أشكال إعلانية: ريل / كاروسيل / بوست</span>
+    <span class="chip">استهداف مبني على تحليل عمري وسلوكي لمنطقتين جغرافيتين</span>
+  </div>
+</section>
+
+<section id="growth">
+  <div class="sec-head"><span class="bar"></span><h2>نمو الحضور الرقمي خلال فترة الحملة</h2></div>
+  <div class="growth-grid">
+    <div class="growth-card"><h3>📘 فيسبوك</h3>
+      <div class="growth-row"><span>متابعون جدد</span><b>13 <span class="arrow">←</span> 294</b></div>
+      <div class="growth-row"><span>التفاعلات</span><b>1 <span class="arrow">←</span> 1,258</b></div>
+      <div class="growth-row"><span>المشاهدات</span><b>492 <span class="arrow">←</span> 207,187</b></div>
+    </div>
+    <div class="growth-card"><h3>📷 إنستغرام</h3>
+      <div class="growth-row"><span>متابعون جدد</span><b>14 <span class="arrow">←</span> 47</b></div>
+      <div class="growth-row"><span>التفاعلات</span><b>0 <span class="arrow">←</span> 264</b></div>
+      <div class="growth-row"><span>المشاهدات</span><b>254 <span class="arrow">←</span> 10,116</b></div>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:12px;">الأرقام اليسرى تمثل الفترة السابقة للحملة، واليمنى فترة تنفيذها. أعداد المتابعين هي متابعون جدد اكتُسبوا خلال كل فترة (وليست إجمالي متابعي الصفحة)، والمشاهدات تشمل الوصول العضوي والمدفوع معًا.</p>
+</section>
+
+<section id="audience">
+  <div class="sec-head"><span class="bar"></span><h2>الأداء حسب الفئة العمرية</h2></div>
+  <div class="barlist" id="age-bars"></div>
+  <div class="note">الفئة <b>45–54 سنة</b> حققت أعلى وصول (16,641) وأعلى عدد تفاعلات (2,332) مع أفضل نسبة نقر (6.43%). في المقابل، فئة <b>18–24 سنة</b> سجّلت وصولًا أقل (9,319) وأدنى نسبة نقر (4.88%) بين كل الفئات — فرصة لتحسين الرسالة الموجهة لهذه الشريحة تحديدًا.</div>
+
+  <div class="sec-head" style="margin-top:34px;"><span class="bar"></span><h2>الأداء حسب الجنس</h2></div>
+  <div class="barlist">
+    <div class="bar-row"><div class="top"><span>الذكور</span><span class="val">CTR 5.67%</span></div><div class="track"><div class="fill" style="width:74%"></div></div></div>
+    <div class="bar-row"><div class="top"><span>الإناث</span><span class="val">CTR 7.67%</span></div><div class="track"><div class="fill gold" style="width:100%"></div></div></div>
+  </div>
+  <div class="note">استحوذ الجمهور الذكوري على حجم الحملة الأكبر (51,487 وصولًا). حجم الوصول النسائي غير محدد رقميًا في تقرير ميتا الأصلي، لكن الإناث أظهرن نسبة استجابة أعلى نسبيًا (7.67% مقابل 5.67%) رغم حجم أصغر من الجمهور — مؤشر جودة استهداف جيد لهذه الشريحة يستحق فرصة توسّع أكبر.</div>
+
+  <div class="sec-head" style="margin-top:34px;"><span class="bar"></span><h2>الأداء حسب المنصة</h2></div>
+  <div class="barlist">
+    <div class="bar-row"><div class="top"><span>فيسبوك — وصول 63,196</span><span class="val">CTR 6.28%</span></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
+    <div class="bar-row"><div class="top"><span>إنستغرام — وصول 5,233</span><span class="val">CTR 2.79%</span></div><div class="track"><div class="fill gold" style="width:8%"></div></div></div>
+  </div>
+  <div class="note">فيسبوك كان القناة المهيمنة على الحملة من حيث حجم الوصول ونسبة النقر معًا، بينما حقق إنستغرام حجمًا أصغر بكثير مع استجابة أقل نسبيًا — ما يشير إلى فرصة لتطوير محتوى مخصص لطبيعة جمهور إنستغرام بدل استخدام نفس رسائل فيسبوك.</div>
+</section>
+
+<section id="geo">
+  <div class="sec-head"><span class="bar"></span><h2>الأداء حسب الدولة</h2></div>
+  <div class="barlist" id="geo-bars" style="margin-bottom:26px;"></div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>الدولة</th><th>الوصول</th><th>الظهور</th><th>التكرار</th><th>النتائج</th><th>CTR</th><th>التقييم</th>
+      </tr></thead>
+      <tbody id="geo-table"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="sec-head"><span class="bar"></span><h2>نتيجة الحملة بشكل عام</h2></div>
+  <p>أظهرت الحملة أداءً جيدًا جدًا على مستوى الوصول والتفاعل والاستجابة الإعلانية، مع تفاوت طبيعي ومتوقع بين الدول والمنصات والفئات العمرية. تركّز الأداء بشكل رئيسي في <b>الجزائر ومصر واليمن</b>، بينما أظهرت <b>مصر والأردن والعراق وسوريا</b> استجابة تفاعلية مرتفعة جدًا نسبة لحجم وصولها — إشارة قوية على ملاءمة الرسالة الإعلانية لجمهور هذه الأسواق تحديدًا. حققت <b>المغرب وليبيا وتونس</b> أداءً متوازنًا ومستقرًا دون الاعتماد على حجم وصول كبير.</p>
+  <p>أما <b>السعودية والكويت وعُمان والإمارات</b>، فحجم البيانات المتاح عنها لا يزال محدودًا جدًا، ولا يمكن بناء أي استنتاج نهائي حول جدوى التوسّع فيها من نتائج هذه الفترة وحدها.</p>
+</section>
+
+<section id="recs">
+  <div class="sec-head"><span class="bar"></span><h2>الخلاصة والتوصيات</h2></div>
+  <ol class="recs">
+    <li>الاستمرار في الإعلانات المدفوعة مع تخصيص الحملات حسب الدول والفئات الأكثر استجابة (الجزائر، مصر، اليمن، الأردن، العراق).</li>
+    <li>التركيز على فيسبوك كقناة رئيسية، مع تطوير محتوى مخصص لطبيعة جمهور إنستغرام واختبار صيغ إعلانية متنوعة له.</li>
+    <li>تحسين الرسالة الإعلانية الموجّهة لفئة 18–24 سنة تحديدًا، لرفع نسبة استجابتها الأقرب من باقي الفئات العمرية.</li>
+    <li>تحسين الرسالة الإعلانية والدعوة الصريحة للتسجيل، لتوجيه المهتمّ مباشرة نحو إتمام التسجيل.</li>
+    <li>ربط الإعلانات بنظام التسجيل الداخلي لتحديد عدد الطلاب القادمين فعليًا من الحملة وقياس التحويل الحقيقي.</li>
+    <li>الاستمرار في استهداف الجنسين مع تخصيص الرسائل الإعلانية لكل شريحة على حدة، خصوصًا مع الاستجابة العالية نسبيًا للجمهور النسائي.</li>
+    <li>اختبار الأسواق ذات الأداء الواعد (كسوريا) تدريجيًا بدل التوسع المباشر، مع مقارنة نتائج كل دولة بشكل مستقل.</li>
+  </ol>
+</section>
+
+<section>
+  <div class="sec-head"><span class="bar"></span><h2>دليل المصطلحات الإعلانية</h2></div>
+  <details><summary>الوصول (Reach)</summary><p>عدد الأشخاص الفريدين الذين شاهدوا الإعلان مرة واحدة على الأقل.</p></details>
+  <details><summary>مرات الظهور (Impressions)</summary><p>إجمالي عدد مرات عرض الإعلان على الشاشات، للشخص نفسه أو لأشخاص مختلفين.</p></details>
+  <details><summary>التكرار (Frequency)</summary><p>متوسط عدد المرات التي شاهد فيها كل شخص الإعلان خلال فترة الحملة.</p></details>
+  <details><summary>نسبة النقر إلى الظهور الكلي (CTR)</summary><p>نسبة من تفاعلوا أو نقروا على الإعلان من إجمالي من شاهدوه.</p></details>
+  <details><summary>نسبة النقر على الرابط (Link CTR)</summary><p>نسبة من نقروا على الرابط الموجود داخل الإعلان تحديدًا.</p></details>
+  <details><summary>التفاعل</summary><p>مجموع الإعجابات والتعليقات والمشاركات والمشاهدات على الإعلان.</p></details>
+</section>
+
+</main>
+
+<footer>تقرير الحملة التسويقية والإعلانية · 5 أغسطس – 19 سبتمبر 2026 · كلية التعليم عن بعد، جامعة الوسطية الشرعية</footer>
+
+<script>
+const ageData = [
+  {label:'18–24 سنة', ctr:4.88, extra:'وصول 9,319 · تفاعل 1,062'},
+  {label:'25–34 سنة', ctr:6.02, extra:''},
+  {label:'35–44 سنة', ctr:6.15, extra:''},
+  {label:'45–54 سنة', ctr:6.43, extra:'وصول 16,641 · تفاعل 2,332'},
+  {label:'55–64 سنة', ctr:6.30, extra:''},
+];
+const maxCtrAge = Math.max(...ageData.map(d=>d.ctr));
+document.getElementById('age-bars').innerHTML = ageData.map(d=>`
+  <div class="bar-row">
+    <div class="top"><span>${d.label}${d.extra ? ' — '+d.extra : ''}</span><span class="val">CTR ${d.ctr.toFixed(2)}%</span></div>
+    <div class="track"><div class="fill${d.ctr===maxCtrAge?' gold':''}" style="width:${(d.ctr/maxCtrAge*100).toFixed(0)}%"></div></div>
+  </div>`).join('');
+
+const geo = [
+  {c:'الجزائر', reach:26193, impr:68629, freq:2.62, res:800, ctr:6.05, rate:'excellent', label:'ممتاز'},
+  {c:'اليمن', reach:19959, impr:49320, freq:2.47, res:371, ctr:3.81, rate:'vgood', label:'جيد جدًا'},
+  {c:'مصر', reach:12343, impr:32975, freq:2.67, res:659, ctr:9.07, rate:'excellent', label:'ممتاز'},
+  {c:'المغرب', reach:6516, impr:13829, freq:2.12, res:156, ctr:5.20, rate:'good', label:'جيد'},
+  {c:'ليبيا', reach:3711, impr:8886, freq:2.39, res:95, ctr:5.95, rate:'vgood', label:'جيد جدًا'},
+  {c:'تونس', reach:2272, impr:5238, freq:2.31, res:63, ctr:6.66, rate:'vgood', label:'جيد جدًا'},
+  {c:'الأردن', reach:1563, impr:4356, freq:2.79, res:76, ctr:9.14, rate:'excellent', label:'ممتاز'},
+  {c:'العراق', reach:1385, impr:3356, freq:2.42, res:64, ctr:8.97, rate:'excellent', label:'ممتاز'},
+  {c:'سوريا', reach:1106, impr:1938, freq:1.75, res:26, ctr:8.46, rate:'vgood', label:'جيد جدًا'},
+  {c:'السعودية', reach:135, impr:196, freq:1.45, res:4, ctr:12.24, rate:'na', label:'غير كافٍ للتقييم'},
+  {c:'الكويت', reach:23, impr:34, freq:1.48, res:null, ctr:null, rate:'na', label:'غير كافٍ للتقييم'},
+  {c:'عُمان', reach:21, impr:24, freq:1.14, res:null, ctr:null, rate:'na', label:'غير كافٍ للتقييم'},
+  {c:'الإمارات', reach:18, impr:23, freq:1.28, res:null, ctr:null, rate:'na', label:'غير كافٍ للتقييم'},
+];
+const maxReach = Math.max(...geo.map(g=>g.reach));
+document.getElementById('geo-bars').innerHTML = geo.map(g=>`
+  <div class="bar-row">
+    <div class="top"><span>${g.c}</span><span class="val">${g.reach.toLocaleString('en-US')}</span></div>
+    <div class="track"><div class="fill" style="width:${Math.max((g.reach/maxReach*100),1.5).toFixed(1)}%"></div></div>
+  </div>`).join('');
+document.getElementById('geo-table').innerHTML = geo.map(g=>`
+  <tr>
+    <td><b>${g.c}</b></td>
+    <td>${g.reach.toLocaleString('en-US')}</td>
+    <td>${g.impr.toLocaleString('en-US')}</td>
+    <td>${g.freq.toFixed(2)}</td>
+    <td>${g.res ?? '—'}</td>
+    <td>${g.ctr ? g.ctr.toFixed(2)+'%' : '—'}</td>
+    <td><span class="badge ${g.rate}">${g.label}</span></td>
+  </tr>`).join('') + `
+  <tr class="total-row">
+    <td>الإجمالي</td><td>75,245</td><td>188,804</td><td>2.51</td><td>2,314</td><td>6.10%</td><td>—</td>
+  </tr>`;
+</script>
+</body>
+</html>
