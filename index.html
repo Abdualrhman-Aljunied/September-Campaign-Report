@@ -116,7 +116,6 @@ p{color:var(--ink);}
 .barlist{display:flex; flex-direction:column; gap:14px;}
 .bar-row .top{display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;}
 .bar-row .top .val{font-weight:700; color:var(--green-700);}
-.bar-note{font-size:12px; color:var(--muted); margin-top:5px; line-height:1.6;}
 .track{background:var(--green-100); border-radius:5px; height:10px; overflow:hidden;}
 .fill{height:100%; width:0; background:var(--green-700); border-radius:5px; transition:width 1s cubic-bezier(.22,.9,.3,1);}
 .fill.gold{background:var(--gold);}
@@ -238,7 +237,7 @@ footer{padding:32px 0 40px; text-align:center; color:var(--muted); font-size:13p
 <section id="audience">
   <div class="sec-head reveal"><span class="bar"></span><h2>الأداء حسب الفئة العمرية</h2></div>
   <div class="barlist reveal" id="age-bars"></div>
-  <div class="note reveal">الفئة <b>45–54 سنة</b> حققت أعلى وصول (16,641) وأعلى عدد تفاعلات (2,332) في الحملة، بينما سجّلت فئة <b>+65 سنة</b> أعلى نسبة نقر (6.76%) رغم أنها الأصغر حجمًا. فئة <b>18–24 سنة</b> سجّلت أقل نسبة نقر (4.88%) — فرصة لتحسين الرسالة الموجهة لهذه الشريحة تحديدًا.</div>
+  <div class="note reveal">الفئة <b>45–54 سنة</b> حققت أعلى وصول (16,641) وأعلى عدد تفاعلات (2,332) مع أفضل نسبة نقر (6.43%). فئة <b>18–24 سنة</b> سجّلت وصولًا أقل (9,319) ونسبة نقر 4.88% — فرصة لتحسين الرسالة الموجهة لهذه الشريحة تحديدًا.</div>
 
   <div class="sec-head reveal" style="margin-top:34px;"><span class="bar"></span><h2>الأداء حسب الجنس</h2></div>
   <div class="barlist reveal">
@@ -277,7 +276,7 @@ footer{padding:32px 0 40px; text-align:center; color:var(--muted); font-size:13p
 <section id="recs">
   <div class="sec-head reveal"><span class="bar"></span><h2>الخلاصة والتوصيات</h2></div>
   <ol class="recs reveal">
-    <li>الاستمرار في الإعلانات المدفوعة مع تخصيص الحملات حسب الدول والفئات الأكثر استجابة .</li>
+    <li>الاستمرار في الإعلانات المدفوعة مع تخصيص الحملات حسب الدول والفئات الأكثر استجابة (مصر، اليمن، الأردن، العراق).</li>
     <li>التركيز على فيسبوك كقناة رئيسية، مع تطوير محتوى مخصص لطبيعة جمهور إنستغرام واختبار صيغ إعلانية متنوعة له.</li>
     <li>تحسين الرسالة الإعلانية الموجّهة لفئة 18–24 سنة تحديدًا، لرفع نسبة استجابتها.</li>
     <li>تحسين الرسالة الإعلانية والدعوة الصريحة للتسجيل، لتوجيه المهتمّ مباشرة نحو إتمام التسجيل.</li>
@@ -367,19 +366,17 @@ const kpiIo = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.kpi-grid').forEach(el=>kpiIo.observe(el));
 
 const ageData = [
-  {label:'18–24 سنة', ctr:4.88, extra:'وصول 9,319 · تفاعل 1,062', note:'الأقل استجابة بين الفئات، ما يشير إلى حاجة الرسالة الإعلانية الموجهة لهذه الشريحة إلى تعديل يتناسب أكثر مع اهتماماتها.'},
-  {label:'25–34 سنة', ctr:6.02, extra:'وصول 13,909 · تفاعل 1,871', note:'استجابة قريبة من متوسط الحملة العام، وتمثل شريحة مستقرة يمكن البناء عليها في الحملات القادمة.'},
-  {label:'35–44 سنة', ctr:6.15, extra:'وصول 15,581 · تفاعل 2,015', note:'من أفضل الفئات استجابة، وهي الأقرب سنًا للجمهور الذي يستهدفه برنامج التعليم عن بعد عادة.'},
-  {label:'45–54 سنة', ctr:6.43, extra:'وصول 16,641 · تفاعل 2,332', note:'الأعلى وصولًا وتفاعلًا في الحملة بأكملها، وهو ما يجعلها الفئة الأكثر تأثيرًا على النتائج الإجمالية.'},
-  {label:'55–64 سنة', ctr:6.30, extra:'وصول 10,091 · تفاعل 1,474', note:'نسبة نقر مرتفعة رغم أن هذه الفئة عادة أقل استهدافًا في حملات مشابهة، ما يستحق متابعة أقرب.'},
-  {label:'+65 سنة', ctr:6.76, extra:'وصول 3,221 · تفاعل 513', note:'أعلى نسبة نقر بين كل الفئات العمرية رغم أنها الأصغر حجمًا في الوصول — تفاعل نوعي مرتفع يستحق استهدافًا أوسع.'},
+  {label:'18–24 سنة', ctr:4.88, extra:'وصول 9,319 · تفاعل 1,062'},
+  {label:'25–34 سنة', ctr:6.02, extra:'وصول 13,909 · تفاعل 1,871'},
+  {label:'35–44 سنة', ctr:6.15, extra:'وصول 15,581 · تفاعل 2,015'},
+  {label:'45–54 سنة', ctr:6.43, extra:'وصول 16,641 · تفاعل 2,332'},
+  {label:'55–64 سنة', ctr:6.30, extra:'وصول 10,091 · تفاعل 1,474'},
 ];
 const maxCtrAge = Math.max(...ageData.map(d=>d.ctr));
 document.getElementById('age-bars').innerHTML = ageData.map(d=>`
   <div class="bar-row">
     <div class="top"><span>${d.label}${d.extra ? ' — '+d.extra : ''}</span><span class="val">CTR ${d.ctr.toFixed(2)}%</span></div>
     <div class="track"><div class="fill${d.ctr===maxCtrAge?' gold':''}" data-w="${(d.ctr/maxCtrAge*100).toFixed(0)}"></div></div>
-    <div class="bar-note">${d.note}</div>
   </div>`).join('');
 
 const geo = [
